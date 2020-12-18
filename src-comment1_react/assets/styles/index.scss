@@ -1,0 +1,32 @@
+.reply {
+  margin-top: 0px;
+}
+
+li {
+  transition: .5s;
+  overflow: hidden;
+}
+
+.handle {
+  width: 40px;
+  border: 1px solid #cccccc;
+  background-color: #ffffff;
+  position: absolute;
+  right: 10px;
+  top: 1px;
+  text-align: center;
+
+  a {
+    display: block;
+    text-decoration: none;
+  }
+}
+
+.user {
+  font-size: 22px;
+}
+
+.content {
+  margin-left: 40px;
+  font-size: 18px;
+}
