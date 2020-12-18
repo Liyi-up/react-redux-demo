@@ -3,15 +3,23 @@ import CommentAdd from "../../components/comment-add/comment-add";
 import CommentList from "../../components/comment-list/comment-list"
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux';
-import {addComment,delComment} from '../../redux/action'
+import {addComment, delComment, getComment} from '../../redux/action'
+
 class App extends Component {
     static propsTypes = {
         comments: PropTypes.array.isRequired,
         addComment: PropTypes.func.isRequired,
-        delComment: PropTypes.func.isRequired
+        delComment: PropTypes.func.isRequired,
+        getComment: PropTypes.func.isRequired
+    }
+
+    componentDidMount() {
+        // 异步请求数据
+        this.props.getComment();
     }
 
     render() {
+
         let {comments, addComment, delComment} = this.props;
         return (
             <div>
@@ -35,6 +43,6 @@ class App extends Component {
 }
 
 export default connect(
-    state=>({comments:state.comments}),
-    {addComment,delComment}
+    state => ({comments: state.comments}),
+    {addComment, delComment, getComment}
 )(App);
